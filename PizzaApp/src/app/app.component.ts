@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {IPizza} from "./app.model";
+import {PIZZAS} from './app.data';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +9,9 @@ import {IPizza} from "./app.model";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  pizza: IPizza;
+  pizzas: Array<IPizza>;
 
   constructor() {
-    this.pizza = {
-      name: '4 STAGIONI',
-      price: 27.5,
-      weight: 550,
-      ingredients: 'sos rosii, mozzarella, ciuperci, salam, sunca presata, oregano, anghinare',
-      canPurchase: true,
-      soldOut: false
-    }
+    this.pizzas = PIZZAS;
   }
 }

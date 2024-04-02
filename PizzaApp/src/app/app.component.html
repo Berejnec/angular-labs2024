@@ -1,14 +1,24 @@
 <div class="container">
-  <div class="card">
-    <div class="card-content">
-      <p class="card-title">
-        {{pizza.name}} ({{pizza.weight}}) g
-      </p>
-      <p>{{pizza.price}} RON</p>
-      <p>{{pizza.ingredients}}</p>
+  @for (pizza of pizzas; track pizza.name) {
+    <div id="pizza">
+      @if (!pizza.soldOut) {
+        <div class="card">
+          <div class="card-content">
+            <p class="card-title">
+              {{ pizza.name }} ({{ pizza.weight }}) g
+            </p>
+            <p>{{ pizza.price }} RON</p>
+            <p>{{ pizza.ingredients }}</p>
+          </div>
+
+          @if (pizza.canPurchase) {
+            <div class="card-action">
+              <button id="add" name="add" class="btn"> Add to Cart</button>
+            </div>
+          }
+        </div>
+      }
     </div>
-    <div class="card-action">
-      <button id="add" name="add" class="btn"> Add to Cart</button>
-    </div>
-  </div>
+  }
 </div>
+
