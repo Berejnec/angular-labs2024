@@ -1,13 +1,20 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'PizzaApp';
+  pizza: any;
+
+  constructor() {
+    this.pizza = {
+      name: '4 STAGIONI',
+      price: 27.5,
+      weight: 550,
+      ingredients: 'sos rosii, mozzarella, ciuperci, salam, sunca presata, oregano, anghinare'
+    }
+  }
 }
