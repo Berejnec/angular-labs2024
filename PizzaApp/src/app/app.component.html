@@ -2,10 +2,13 @@
   <div class="card">
     <div class="card-content">
       <p class="card-title">
-        {{ pizza.name }} ({{ pizza.weight }}) g
+        {{pizza.name}} ({{pizza.weight}}) g
       </p>
-      <p>{{ pizza.price }} RON</p>
-      <p>{{ pizza.ingredients }}</p>
+      <p>{{pizza.price}} RON</p>
+      <p>{{pizza.ingredients}}</p>
+    </div>
+    <div class="card-action">
+      <button id="add" name="add" class="btn"> Add to Cart</button>
     </div>
   </div>
 </div>
