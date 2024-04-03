@@ -1,0 +1,27 @@
+<div class="card-tabs">
+  <ul class="tabs">
+    <li class="tab"><a (click)='selectTab(1)' [class.active]="tabMap.get(1)">Ingredients</a></li>
+    <li class="tab"><a (click)='selectTab(2)' [class.active]="tabMap.get(2)">Extras</a></li>
+    <li class="tab"><a (click)='selectTab(3)' [class.active]="tabMap.get(3)">Reviews</a></li>
+  </ul>
+</div>
+<div class="card-content">
+  @if (tabMap.get(1)) {
+    <div class="ingredients">
+      <h5>Ingredients</h5>
+      <blockquote>{{ pizza.ingredients }}</blockquote>
+    </div>
+  }
+  @if (tabMap.get(2)) {
+    <div class="extras">
+      <h5>Extras</h5>
+      <blockquote>Not yet</blockquote>
+    </div>
+  }
+  @if (tabMap.get(3)) {
+    <div class="reviews">
+      <h5>Reviews</h5>
+      <blockquote>Not yet</blockquote>
+    </div>
+  }
+</div>
