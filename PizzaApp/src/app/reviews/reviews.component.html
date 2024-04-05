@@ -31,7 +31,7 @@
   <input type="email" required email #author="ngModel" placeholder="jimmyDean@example.org" class="form-control" [(ngModel)]="newReview.author"
          name="email">
   <div class="error" [class.hide]="author.valid">
-    Author is invalid!
+    Author is required!
   </div>
 
   <div class="right-align">
