@@ -9,7 +9,7 @@ export interface IPizza {
   soldOut: boolean
 }
 
-export interface IReview{
+export interface IReview {
   stars?: number,
   body?: string,
   author?: string,
