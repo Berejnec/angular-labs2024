@@ -5,7 +5,7 @@ import {IPizza} from "./app.model";
 @Injectable({
   providedIn: 'root'
 })
-export class PizzaService {
+export class PizzaFileService {
 
   constructor() {
   }
