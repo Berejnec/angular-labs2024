@@ -1,8 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IPizza} from "./app.model";
 import {CurrencyPipe} from "@angular/common";
 import {TabsComponent} from "./tabs/tabs.component";
-import {PizzaFileService} from "./pizza-file.service";
+import {PizzaRestService} from "./pizza-rest.service";
 
 @Component({
   selector: 'app-root',
@@ -11,10 +11,13 @@ import {PizzaFileService} from "./pizza-file.service";
   imports: [CurrencyPipe, TabsComponent],
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  pizzas: Array<IPizza>;
+export class AppComponent implements OnInit {
+  pizzas: Array<IPizza> = [];
 
-  constructor(private pizzaService: PizzaFileService) {
-    this.pizzas = this.pizzaService.getPizzas();
+  constructor(private pizzaService: PizzaRestService) {
+  }
+
+  ngOnInit() {
+    this.pizzaService.getPizzas().subscribe(pizzas => this.pizzas = pizzas);
   }
 }
