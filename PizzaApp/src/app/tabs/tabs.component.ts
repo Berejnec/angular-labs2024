@@ -1,12 +1,14 @@
 import {Component, Input} from '@angular/core';
-import {IPizza, IReview} from "../app.model";
+import {IPizza} from "../app.model";
 import {FormsModule} from "@angular/forms";
+import {ReviewsComponent} from "../reviews/reviews.component";
 
 @Component({
   selector: 'tabs',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    ReviewsComponent
   ],
   templateUrl: './tabs.component.html',
   styleUrl: './tabs.component.css'
@@ -17,8 +19,6 @@ export class TabsComponent {
   private activeTab = 1;
   tabMap = new Map<number, boolean>();
 
-  newReview: IReview = {};
-
   constructor() {
     this.tabMap.set(this.activeTab, true);
   }
@@ -27,11 +27,5 @@ export class TabsComponent {
     this.tabMap.set(this.activeTab, false);
     this.activeTab = tid;
     this.tabMap.set(this.activeTab, true);
-  }
-
-  public onSubmit() {
-    this.newReview.createdOn = new Date().getMilliseconds();
-    this.pizza.reviews.push(this.newReview);
-    this.newReview = {};
   }
 }
