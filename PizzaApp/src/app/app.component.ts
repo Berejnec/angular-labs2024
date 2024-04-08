@@ -1,23 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {IPizza} from "./app.model";
-import {CurrencyPipe} from "@angular/common";
-import {TabsComponent} from "./tabs/tabs.component";
-import {PizzaRestService} from "./pizza-rest.service";
+import {Component} from '@angular/core';
+import {PizzaListComponent} from "./pizza-list/pizza-list.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
-  imports: [CurrencyPipe, TabsComponent],
+  imports: [PizzaListComponent],
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
-  pizzas: Array<IPizza> = [];
-
-  constructor(private pizzaService: PizzaRestService) {
-  }
-
-  ngOnInit() {
-    this.pizzaService.getPizzas().subscribe(pizzas => this.pizzas = pizzas);
+export class AppComponent {
+  constructor() {
   }
 }

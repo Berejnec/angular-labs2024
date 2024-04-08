@@ -1,13 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {IReview} from "../app.model";
+import {FormsModule} from "@angular/forms";
+import {IReview} from "../../pizza.model";
 
 @Component({
   selector: 'reviews',
   standalone: true,
   imports: [
-    FormsModule,
-    ReactiveFormsModule
+    FormsModule
   ],
   templateUrl: './reviews.component.html',
   styleUrl: './reviews.component.css'

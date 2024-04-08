@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {PIZZAS} from "./app.data";
-import {IPizza} from "./app.model";
+import {PIZZAS} from "./pizza.data";
+import {IPizza} from "./pizza.model";
 
 @Injectable({
   providedIn: 'root'

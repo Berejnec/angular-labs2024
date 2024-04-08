@@ -1,14 +1,16 @@
 import {Component, Input} from '@angular/core';
-import {IPizza} from "../app.model";
-import {FormsModule} from "@angular/forms";
-import {ReviewsComponent} from "../reviews/reviews.component";
+import {IPizza} from "../pizza.model";
+import {ReviewsComponent} from "./reviews/reviews.component";
+import {IngredientsComponent} from "./ingredients/ingredients.component";
+import {ExtrasComponent} from "./extras/extras.component";
 
 @Component({
   selector: 'tabs',
   standalone: true,
   imports: [
-    FormsModule,
-    ReviewsComponent
+    ReviewsComponent,
+    IngredientsComponent,
+    ExtrasComponent
   ],
   templateUrl: './tabs.component.html',
   styleUrl: './tabs.component.css'

@@ -1,0 +1,26 @@
+@for (pizza of pizzas; track pizza.name) {
+  <div id="pizza">
+    @if (!pizza.soldOut) {
+      <div class="card horizontal">
+        <div class="card-image">
+          <img height="190px" [src]="pizza.image">
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <p class="card-title">
+              {{ pizza.name }} ({{ pizza.weight }}) g
+            </p>
+            <p>{{ pizza.price | currency}}</p>
+          </div>
+
+          @if (pizza.canPurchase) {
+            <div class="card-action">
+              <button id="add" name="add" class="btn"> Add to Cart</button>
+            </div>
+          }
+          <tabs [pizza]="pizza"></tabs>
+        </div>
+      </div>
+    }
+  </div>
+}

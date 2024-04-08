@@ -7,16 +7,10 @@
 </div>
 <div class="card-content">
   @if (tabMap.get(1)) {
-    <div class="ingredients">
-      <h5>Ingredients</h5>
-      <blockquote>{{ pizza.ingredients }}</blockquote>
-    </div>
+    <ingredients [ingredients]="pizza.ingredients"></ingredients>
   }
   @if (tabMap.get(2)) {
-    <div class="extras">
-      <h5>Extras</h5>
-      <blockquote>Not yet</blockquote>
-    </div>
+    <extras></extras>
   }
   @if (tabMap.get(3)) {
     <reviews [reviews]="pizza.reviews"></reviews>
