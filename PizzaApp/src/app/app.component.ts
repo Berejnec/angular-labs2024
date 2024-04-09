@@ -12,7 +12,7 @@ import {PizzaFileService} from "./pizza-file.service";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  pizzas: Array<IPizza>;
+  pizzas: Array<IPizza> = [];
 
   constructor(private pizzaService: PizzaFileService) {
     this.pizzas = this.pizzaService.getPizzas();
