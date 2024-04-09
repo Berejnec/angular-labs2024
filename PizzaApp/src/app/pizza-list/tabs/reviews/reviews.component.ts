@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {IReview} from "../../pizza.model";
 
@@ -14,13 +14,14 @@ import {IReview} from "../../pizza.model";
 export class ReviewsComponent implements OnInit {
   @Input() reviews: Array<IReview> = [];
   newReview: IReview = {};
+  @Output() addReview = new EventEmitter<IReview>();
 
   ngOnInit() {
   }
 
   public onSubmit() {
     this.newReview.createdOn = new Date().getMilliseconds();
-    this.reviews.push(this.newReview);
+    this.addReview.emit(this.newReview);
     this.newReview = {};
   }
 }

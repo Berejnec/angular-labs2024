@@ -13,6 +13,6 @@
     <extras></extras>
   }
   @if (tabMap.get(3)) {
-    <reviews [reviews]="pizza.reviews"></reviews>
+    <reviews [reviews]="pizza.reviews" (addReview)="addReview($event)"></reviews>
   }
 </div>
