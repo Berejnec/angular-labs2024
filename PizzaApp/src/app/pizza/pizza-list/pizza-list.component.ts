@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {CurrencyPipe} from "@angular/common";
-import {TabsComponent} from "./tabs/tabs.component";
-import {IPizza} from "./pizza.model";
-import {PizzaRestService} from "./pizza-rest.service";
+import {TabsComponent} from "../pizza-details/tabs/tabs.component";
+import {IPizza} from "../pizza.model";
+import {PizzaRestService} from "../pizza-rest.service";
+import {NavigationService} from "../../commons/navigation.service";
 
 @Component({
   selector: 'pizza-list',
@@ -17,10 +18,15 @@ import {PizzaRestService} from "./pizza-rest.service";
 export class PizzaListComponent implements OnInit {
   pizzas: Array<IPizza> = [];
 
-  constructor(private pizzaService: PizzaRestService) {
+  constructor(private pizzaService: PizzaRestService,
+              private navigationService: NavigationService) {
   }
 
   ngOnInit() {
     this.pizzaService.getPizzas().subscribe(pizzas => this.pizzas = pizzas);
+  }
+
+  goToPizza(pizza: IPizza) {
+    return this.navigationService.openPizza(pizza.id);
   }
 }

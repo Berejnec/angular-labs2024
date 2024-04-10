@@ -7,14 +7,18 @@ import {IPizza, IReview} from "./pizza.model";
   providedIn: 'root'
 })
 export class PizzaRestService {
-  private url: string = "https://angular-labs2021-59f10-default-rtdb.firebaseio.com/pizzas.json";
+  private url: string = "https://angular-labs2021-59f10-default-rtdb.firebaseio.com/pizzas";
   private reviewUrl: string = "https://us-central1-angular-labs2021-59f10.cloudfunctions.net/app";
 
   constructor(private http: HttpClient) {
   }
 
+  getPizza(id: string): Observable<IPizza | undefined> {
+    return this.http.get<IPizza>(`${this.url}/${id}.json`);
+  }
+
   getPizzas(): Observable<Array<IPizza>> {
-    return this.http.get<Array<IPizza>>(this.url);
+    return this.http.get<Array<IPizza>>(this.url + '.json');
   }
 
   addReview(pizza: IPizza, review: IReview): Observable<IPizza> {

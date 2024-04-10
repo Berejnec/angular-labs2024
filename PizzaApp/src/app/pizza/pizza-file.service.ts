@@ -11,6 +11,10 @@ export class PizzaFileService {
   constructor() {
   }
 
+  getPizza(id: string): Observable<IPizza | undefined> {
+    return of(PIZZAS.find(pizza => pizza.id === id));
+  }
+
   getPizzas(): Observable<Array<IPizza>> {
     return of(PIZZAS);
   }

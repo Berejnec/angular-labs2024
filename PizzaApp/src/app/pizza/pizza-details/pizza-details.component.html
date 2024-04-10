@@ -1,5 +1,7 @@
-@for (pizza of pizzas; track pizza.name) {
+@if (pizza) {
   <div id="pizza">
+    <a class="btn-flat" (click)="goBack()"><i class="material-icons left">keyboard_arrow_left</i>Back</a>
+
     @if (!pizza.soldOut) {
       <div class="card horizontal">
         <div class="card-image">
@@ -10,7 +12,7 @@
             <p class="card-title">
               {{ pizza.name }} ({{ pizza.weight }}) g
             </p>
-            <p>{{ pizza.price | currency}}</p>
+            <p>{{ pizza.price | currency }}</p>
           </div>
 
           @if (pizza.canPurchase) {

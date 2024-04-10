@@ -1,9 +1,9 @@
 import {Component, Input} from '@angular/core';
-import {IPizza, IReview} from "../pizza.model";
+import {IPizza, IReview} from "../../pizza.model";
 import {ReviewsComponent} from "./reviews/reviews.component";
 import {IngredientsComponent} from "./ingredients/ingredients.component";
 import {ExtrasComponent} from "./extras/extras.component";
-import {PizzaRestService} from "../pizza-rest.service";
+import {PizzaRestService} from "../../pizza-rest.service";
 
 @Component({
   selector: 'tabs',
