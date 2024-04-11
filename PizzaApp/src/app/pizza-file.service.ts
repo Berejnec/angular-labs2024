@@ -1,16 +1,21 @@
-import {Injectable} from '@angular/core';
+import {Injectable, Provider} from '@angular/core';
 import {PIZZAS} from "./app.data";
 import {IPizza} from "./app.model";
+import {IPizzaService, PIZZA_SERVICE} from "./pizza.service";
+import {Observable, of} from "rxjs";
 
-@Injectable({
-  providedIn: 'root'
-})
-export class PizzaFileService {
+@Injectable()
+export class PizzaFileService implements IPizzaService {
 
   constructor() {
   }
 
-  getPizzas(): Array<IPizza> {
-    return PIZZAS;
+  getPizzas(): Observable<Array<IPizza>> {
+    return of(PIZZAS);
   }
 }
+
+export const PizzaFileServiceProvider: Provider = {
+  provide: PIZZA_SERVICE,
+  useClass: PizzaFileService
+};

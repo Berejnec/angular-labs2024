@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {IPizza} from "./app.model";
 import {CurrencyPipe} from "@angular/common";
 import {TabsComponent} from "./tabs/tabs.component";
-import {PizzaRestService} from "./pizza-rest.service";
+import {IPizzaService, PIZZA_SERVICE} from "./pizza.service";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ import {PizzaRestService} from "./pizza-rest.service";
 export class AppComponent implements OnInit {
   pizzas: Array<IPizza> = [];
 
-  constructor(private pizzaService: PizzaRestService) {
+  constructor(@Inject(PIZZA_SERVICE) private pizzaService: IPizzaService) {
   }
 
   ngOnInit() {
