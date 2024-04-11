@@ -1,0 +1,9 @@
+@for (customer of customers; track customer._id) {
+  <div id="customer" class="card">
+    <div class="card-content" (click)="goToCustomer(customer)">
+      <div class="content">
+        <span class="card-title"> {{ customer.name }} </span>
+      </div>
+    </div>
+  </div>
+}

@@ -1,27 +1,26 @@
 import {Routes} from '@angular/router';
-import {PizzaListComponent} from "./pizza/pizza-list/pizza-list.component";
-import {PizzaDetailsComponent} from "./pizza/pizza-details/pizza-details.component";
-import {CustomerComponent} from "./customer/customer.component";
-import {customerGuard} from "./customer.guard";
 
-const PIZZA_ROUTES: Routes = [
+export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/pizzas',
+    pathMatch: 'full'
+  },
   {
     path: 'pizzas',
     children: [
       {
         path: '',
-        component: PizzaListComponent
+        loadComponent: () => import('./pizza/pizza-list/pizza-list.component').then(m => m.PizzaListComponent),
       },
       {
         path: ':id',
-        component: PizzaDetailsComponent
+        loadComponent: () => import('./pizza/pizza-details/pizza-details.component').then(m => m.PizzaDetailsComponent),
       },
     ]
   },
   {
     path: 'customers',
-    component: CustomerComponent,
-    canActivate: [customerGuard]
+    loadChildren: () => import('./customer/customer.routes').then(m => m.CUSTOMER_ROUTES)
   }
 ];
-export const routes: Routes = PIZZA_ROUTES;
