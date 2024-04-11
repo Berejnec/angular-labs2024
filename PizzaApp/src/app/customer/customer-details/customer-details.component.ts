@@ -5,13 +5,15 @@ import {NavigationService} from "../../commons/navigation.service";
 import {ActivatedRoute} from "@angular/router";
 import {FormGroup, FormsModule} from "@angular/forms";
 import {JsonPipe} from "@angular/common";
+import {CustomerEditComponent} from "./customer-edit/customer-edit.component";
 
 @Component({
   selector: 'app-customer-details',
   standalone: true,
   imports: [
     FormsModule,
-    JsonPipe
+    JsonPipe,
+    CustomerEditComponent
   ],
   templateUrl: './customer-details.component.html',
   styleUrl: './customer-details.component.css'
