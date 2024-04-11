@@ -14,6 +14,12 @@
 
 select {
   display: block;
+  margin-bottom: 20px;
+  outline: none !important;
+}
+
+select {
+  display: block;
   -webkit-appearance: none;
   border-radius: 0;
   outline: none !important;
@@ -43,4 +49,11 @@ form {
   color: #ee6e73 !important;
   position: relative;
   top: -20px;
+
+}
+
+.error > label {
+  color: #ee6e73 !important;
+  position: absolute;
+  top: 2px;
 }

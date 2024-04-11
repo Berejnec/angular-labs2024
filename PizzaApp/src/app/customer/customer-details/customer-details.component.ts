@@ -3,11 +3,16 @@ import {ICustomer} from "../customer.model";
 import {CustomerFileService} from "../customer.service";
 import {NavigationService} from "../../commons/navigation.service";
 import {ActivatedRoute} from "@angular/router";
+import {FormGroup, FormsModule} from "@angular/forms";
+import {JsonPipe} from "@angular/common";
 
 @Component({
   selector: 'app-customer-details',
   standalone: true,
-  imports: [],
+  imports: [
+    FormsModule,
+    JsonPipe
+  ],
   templateUrl: './customer-details.component.html',
   styleUrl: './customer-details.component.css'
 })
@@ -26,5 +31,12 @@ export class CustomerDetailsComponent implements OnInit {
 
   goBack() {
     return this.navigationService.openCustomers();
+  }
+
+  onSubmit(customerFormGroup: FormGroup) {
+    console.log({
+      ...customerFormGroup.value,
+      _id: this.customer ? this.customer._id : null
+    });
   }
 }
