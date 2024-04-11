@@ -1,4 +1,8 @@
 import {Routes} from '@angular/router';
+import {PizzaListComponent} from "./pizza/pizza-list/pizza-list.component";
+import {PizzaDetailsComponent} from "./pizza/pizza-details/pizza-details.component";
+import {CustomerListComponent} from "./customer/customer-list/customer-list.component";
+import {CustomerDetailsComponent} from "./customer/customer-details/customer-details.component";
 
 export const routes: Routes = [
   {
@@ -11,16 +15,25 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        loadComponent: () => import('./pizza/pizza-list/pizza-list.component').then(m => m.PizzaListComponent),
+        component: PizzaListComponent
       },
       {
         path: ':id',
-        loadComponent: () => import('./pizza/pizza-details/pizza-details.component').then(m => m.PizzaDetailsComponent),
-      },
+        component: PizzaDetailsComponent
+      }
     ]
   },
   {
     path: 'customers',
-    loadChildren: () => import('./customer/customer.routes').then(m => m.CUSTOMER_ROUTES)
+    children: [
+      {
+        path: '',
+        component: CustomerListComponent
+      },
+      {
+        path: ':id',
+        component: CustomerDetailsComponent
+      }
+    ]
   }
 ];
