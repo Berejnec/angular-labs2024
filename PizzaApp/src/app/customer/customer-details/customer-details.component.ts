@@ -6,6 +6,7 @@ import {ActivatedRoute} from "@angular/router";
 import {FormGroup, FormsModule} from "@angular/forms";
 import {JsonPipe} from "@angular/common";
 import {CustomerEditComponent} from "./customer-edit/customer-edit.component";
+import {ForbiddenEmailValidatorDirective} from "../forbidden-email-validator.directive";
 
 @Component({
   selector: 'app-customer-details',
@@ -13,7 +14,8 @@ import {CustomerEditComponent} from "./customer-edit/customer-edit.component";
   imports: [
     FormsModule,
     JsonPipe,
-    CustomerEditComponent
+    CustomerEditComponent,
+    ForbiddenEmailValidatorDirective
   ],
   templateUrl: './customer-details.component.html',
   styleUrl: './customer-details.component.css'

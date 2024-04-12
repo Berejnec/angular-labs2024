@@ -15,4 +15,9 @@ export class CustomerFileService {
     return of(CUSTOMERS.find(customer => customer._id === id))
   }
 
+  isEmailTaken(email: string): Observable<boolean> {
+    const isTaken = CUSTOMERS.findIndex(customer => customer.email === email) >= 0;
+    return of(isTaken);
+  }
+
 }

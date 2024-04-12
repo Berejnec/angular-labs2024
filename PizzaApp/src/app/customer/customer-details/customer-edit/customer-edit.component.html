@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col s6">
           <label>First name</label>
-          <input formControlName="firstName" />
+          <input formControlName="firstName"/>
           @if (customerFormGroup.get('firstName')?.invalid && (customerFormGroup.get('firstName')?.dirty || customerFormGroup.get('firstName')?.touched)) {
             <div class="error">
               @if (customerFormGroup.get('firstName')?.errors?.['required']) {
@@ -38,6 +38,12 @@
               }
               @if (emailFormControl.errors && emailFormControl.errors['email']) {
                 <label>Email not valid</label>
+              }
+              @if (emailFormControl.errors && emailFormControl.errors['uniqueEmail']) {
+                <label>Email taken</label>
+              }
+              @if (emailFormControl.errors && !emailFormControl.errors['email'] && emailFormControl.errors['forbiddenEmail']) {
+                <label>Email forbidden</label>
               }
             </div>
           }

@@ -1,7 +1,10 @@
 import {Component, Input} from '@angular/core';
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {AbstractControl, AsyncValidatorFn, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators} from "@angular/forms";
 import {ICustomer} from "../../customer.model";
 import {JsonPipe} from "@angular/common";
+import {map, Observable, of} from "rxjs";
+import {CustomerFileService} from "../../customer.service";
+import {CustomerValidators} from "../../customer-validators";
 
 @Component({
   selector: 'app-customer-edit',
@@ -17,8 +20,17 @@ export class CustomerEditComponent {
   emailFormControl: FormControl;
   customerFormGroup: FormGroup;
 
-  constructor() {
-    this.emailFormControl = new FormControl("", [Validators.required, Validators.email])
+  constructor(private customerService: CustomerFileService) {
+    this.emailFormControl = new FormControl("",
+      [
+        Validators.required,
+        Validators.email,
+        CustomerValidators.forbiddenEmailValidator("irian.ro")
+      ],
+      [
+        this.uniqueEmailValidator()
+      ]);
+
     this.customerFormGroup = new FormGroup({
       firstName: new FormControl("", [Validators.required]),
       lastName: new FormControl("", [Validators.required]),
@@ -39,8 +51,7 @@ export class CustomerEditComponent {
     return this._customer;
   }
 
-  @Input()
-  set customer(customer: ICustomer | undefined) {
+  @Input() set customer(customer: ICustomer | undefined) {
     this._customer = customer;
     if (customer) {
       this.customerFormGroup.patchValue(customer);
@@ -52,5 +63,19 @@ export class CustomerEditComponent {
       ...this.customerFormGroup.value,
       _id: this.customer ? this.customer._id : null
     });
+  }
+
+  private uniqueEmailValidator(): AsyncValidatorFn {
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      if (control.value && this.customer && this.customer.email !== control.value) {
+        return this.customerService.isEmailTaken(control.value).pipe(
+          map(isTaken => {
+            return isTaken ? {uniqueEmail: true} : null;
+          })
+        );
+      }
+
+      return of(null);
+    };
   }
 }

@@ -1,8 +1,10 @@
 <a class="btn-flat" style="padding-left: 0" (click)="goBack()"><i class="material-icons left">keyboard_arrow_left</i>Back</a>
 
 @if (customer) {
+  <h4>Reactive forms</h4>
   <app-customer-edit [customer]="customer"></app-customer-edit>
 
+  <h4>Template-driven forms</h4>
   <div class="card">
     <div class="card-content">
       <p class="card-title"></p>
@@ -36,7 +38,7 @@
 
           <div class="col s6">
             <label>Email</label>
-            <input type="email" name="email" [ngModel]="customer.email" #emailControl="ngModel" required email/>
+            <input type="email" name="email" [ngModel]="customer.email" #emailControl="ngModel" required email appForbiddenEmailValidator/>
 
             @if (emailControl.invalid && (emailControl.dirty || emailControl.touched)) {
               <div class="error">
@@ -45,6 +47,9 @@
                 }
                 @if (!!emailControl.errors && emailControl.errors['email']) {
                   <label>Email not valid</label>
+                }
+                @if (emailControl.errors && !emailControl.errors['email'] && emailControl.errors['forbiddenEmail']) {
+                  <label>Email forbidden</label>
                 }
               </div>
             }
