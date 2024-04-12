@@ -1,8 +1,10 @@
 <a class="btn-flat" style="padding-left: 0" (click)="goBack()"><i class="material-icons left">keyboard_arrow_left</i>Back</a>
 
 @if (customer) {
+  <h4>Reactive forms</h4>
   <app-customer-edit [customer]="customer"></app-customer-edit>
 
+  <h4>Template-driven forms</h4>
   <div class="card">
     <div class="card-content">
       <p class="card-title"></p>
