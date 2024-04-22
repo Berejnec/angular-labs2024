@@ -5,8 +5,8 @@ import {IProduct, IReview} from "../product-list/product.model";
 import {IProductService} from "../IProductService";
 
 @Injectable()
-export class PizzaRestService implements IProductService{
-  private url: string = "https://angular-labs2021-59f10-default-rtdb.firebaseio.com/pizzas.json";
+export class PastaRestService implements IProductService{
+  private url: string = "http://localhost:3000/pasta";
   private reviewUrl: string = "https://us-central1-angular-labs2021-59f10.cloudfunctions.net/app";
 
   constructor(private http: HttpClient) {

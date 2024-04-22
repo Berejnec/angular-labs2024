@@ -1,9 +1,10 @@
-import {Component, Input} from '@angular/core';
-import {IPizza, IReview} from "../pizza.model";
+import {Component, Inject, Input} from '@angular/core';
+import {IProduct, IReview} from "../product.model";
 import {ReviewsComponent} from "./reviews/reviews.component";
 import {IngredientsComponent} from "./ingredients/ingredients.component";
 import {ExtrasComponent} from "./extras/extras.component";
-import {PizzaRestService} from "../pizza-rest.service";
+import {ProductToken} from "../../ProductToken";
+import {IProductService} from "../../IProductService";
 
 @Component({
   selector: 'tabs',
@@ -17,12 +18,12 @@ import {PizzaRestService} from "../pizza-rest.service";
   styleUrl: './tabs.component.css'
 })
 export class TabsComponent {
-  @Input() pizza!: IPizza;
+  @Input() pizza!: IProduct;
 
   private activeTab = 1;
   tabMap = new Map<number, boolean>();
 
-  constructor(private pizzaService: PizzaRestService) {
+  constructor(@Inject(ProductToken) private productService: IProductService) {
     this.tabMap.set(this.activeTab, true);
   }
 
@@ -33,7 +34,7 @@ export class TabsComponent {
   }
 
   public addReview(review: IReview) {
-    this.pizzaService.addReview(this.pizza, review)
+    this.productService.addReview(this.pizza, review)
       .subscribe(pizza => this.pizza = pizza);
   }
 }
