@@ -3,8 +3,7 @@ import {IProduct, IReview} from "../product.model";
 import {ReviewsComponent} from "./reviews/reviews.component";
 import {IngredientsComponent} from "./ingredients/ingredients.component";
 import {ExtrasComponent} from "./extras/extras.component";
-import {ProductToken} from "../../ProductToken";
-import {IProductService} from "../../IProductService";
+import {PizzaRestService} from "../../pizza-rest.service";
 
 @Component({
   selector: 'tabs',
@@ -23,7 +22,7 @@ export class TabsComponent {
   private activeTab = 1;
   tabMap = new Map<number, boolean>();
 
-  constructor(@Inject(ProductToken) private productService: IProductService) {
+  constructor(private pizzaService: PizzaRestService) {
     this.tabMap.set(this.activeTab, true);
   }
 
@@ -34,7 +33,7 @@ export class TabsComponent {
   }
 
   public addReview(review: IReview) {
-    this.productService.addReview(this.pizza, review)
+    this.pizzaService.addReview(this.pizza, review)
       .subscribe(pizza => this.pizza = pizza);
   }
 }

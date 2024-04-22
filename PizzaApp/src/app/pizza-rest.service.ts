@@ -1,12 +1,13 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {IProduct, IReview} from "../product-list/product.model";
-import {IProductService} from "../IProductService";
+import {IProduct, IReview} from "./product-list/product.model";
 
-@Injectable()
-export class DessertRestService implements IProductService{
-  private url: string = "http://localhost:3000/dessert";
+@Injectable({
+  providedIn: 'root'
+})
+export class PizzaRestService {
+  private url: string = "https://angular-labs2021-59f10-default-rtdb.firebaseio.com/pizzas.json";
   private reviewUrl: string = "https://us-central1-angular-labs2021-59f10.cloudfunctions.net/app";
 
   constructor(private http: HttpClient) {
