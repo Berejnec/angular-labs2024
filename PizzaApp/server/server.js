@@ -22,6 +22,11 @@ app.get('/dessert', (req, res) => {
   res.json(dessert);
 });
 
+app.post('/log', (req, res) => {
+  console.log(req.body);
+  res.send('Logged');
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
