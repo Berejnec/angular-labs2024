@@ -1,7 +1,8 @@
 import {ILogger} from "./iLogger";
-import {inject} from "@angular/core";
+import {inject, Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 
+@Injectable()
 
 export class ServerLog implements ILogger {
 
