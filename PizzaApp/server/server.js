@@ -13,6 +13,8 @@ const PORT = 3000;
 // Enable CORS
 app.use(cors());
 
+app.use(express.json());
+
 // Define the end point
 app.get('/pasta', (req, res) => {
   res.json(pasta);
@@ -24,7 +26,7 @@ app.get('/dessert', (req, res) => {
 
 app.post('/log', (req, res) => {
   console.log(req.body);
-  res.send('Logged');
+  res.send({message: 'Logged'});
 });
 
 // Start the server
