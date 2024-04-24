@@ -3,7 +3,7 @@ import {IProduct, IReview} from "../product.model";
 import {ReviewsComponent} from "./reviews/reviews.component";
 import {IngredientsComponent} from "./ingredients/ingredients.component";
 import {ExtrasComponent} from "./extras/extras.component";
-import {PizzaRestService} from "../../pizza-rest.service";
+import {IProductService, ProductToken} from "../../IProduct";
 
 @Component({
   selector: 'tabs',
@@ -22,7 +22,7 @@ export class TabsComponent {
   private activeTab = 1;
   tabMap = new Map<number, boolean>();
 
-  constructor(private pizzaService: PizzaRestService) {
+  constructor(@Inject(ProductToken) private pizzaService: IProductService) {
     this.tabMap.set(this.activeTab, true);
   }
 

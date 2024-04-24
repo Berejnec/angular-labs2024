@@ -2,7 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {CurrencyPipe} from "@angular/common";
 import {TabsComponent} from "./tabs/tabs.component";
 import {IProduct} from "./product.model";
-import {PizzaRestService} from "../pizza-rest.service";
+import {IProductService, ProductToken} from "../IProduct";
 
 @Component({
   selector: 'product-list',
@@ -17,7 +17,7 @@ import {PizzaRestService} from "../pizza-rest.service";
 export class ProductListComponent implements OnInit {
   pizzas: Array<IProduct> = [];
 
-  constructor(private pizzaService: PizzaRestService) {
+  constructor(@Inject(ProductToken) private pizzaService: IProductService) {
   }
 
   ngOnInit() {
