@@ -3,7 +3,13 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "paths" : {
+      "@pizza/api-pizza": ["src/app/pizza/api-pizza/index.ts"],
+      "@pizza/data-access": ["src/app/pizza/data-access-pizza/index.ts"],
+      "@pizza/feature-pizza-details": ["src/app/pizza/feature-pizza-details/index.ts"],
+      "@pizza/feature-pizza-list": ["src/app/pizza/feature-pizza-list/index.ts"],
+    }
   },
   "files": [
     "src/main.ts"

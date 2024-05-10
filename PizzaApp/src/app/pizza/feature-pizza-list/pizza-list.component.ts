@@ -1,12 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {CurrencyPipe} from "@angular/common";
-import {TabsComponent} from "../pizza-details/tabs/tabs.component";
-import {IPizza} from "../pizza.model";
-import {PizzaRestService} from "../pizza-rest.service";
+import {TabsComponent} from "../feature-pizza-details/tabs/tabs.component";
 import {NavigationService} from "../../commons/navigation.service";
+import {IPizza, PizzaRestService} from "@pizza/data-access";
 
 @Component({
-  selector: 'pizza-list',
+  selector: 'feature-pizza-list',
   standalone: true,
   imports: [
     CurrencyPipe,

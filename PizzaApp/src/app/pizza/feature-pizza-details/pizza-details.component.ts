@@ -1,13 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {IPizza} from "../pizza.model";
-import {PizzaRestService} from "../pizza-rest.service";
 import {ActivatedRoute} from "@angular/router";
 import {TabsComponent} from "./tabs/tabs.component";
 import {NavigationService} from "../../commons/navigation.service";
 import {CurrencyPipe} from "@angular/common";
+import {IPizza, PizzaRestService} from "@pizza/data-access";
 
 @Component({
-  selector: 'app-pizza-details',
+  selector: 'app-feature-pizza-details',
   standalone: true,
   imports: [
     TabsComponent,

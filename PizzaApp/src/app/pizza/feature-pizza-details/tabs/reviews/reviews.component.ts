@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {IReview} from "../../../pizza.model";
+import {IReview} from "@pizza/data-access";
 
 @Component({
   selector: 'reviews',
