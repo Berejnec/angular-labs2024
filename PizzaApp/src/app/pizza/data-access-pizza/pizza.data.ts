@@ -30,7 +30,7 @@ export let PIZZAS: Array<IPizza> = [
     image: 'assets/images/pepperoni.png',
     ingredients: 'sos rosii, mozzarella, salam picant, oregano',
     canPurchase: false,
-    soldOut: false,
+    soldOut: true,
     reviews: [{
       stars: 3,
       body: "I think this pizza was just OK, could honestly be more spicy, IMO.",

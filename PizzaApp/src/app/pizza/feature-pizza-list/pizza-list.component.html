@@ -1,14 +1,13 @@
 @for (pizza of pizzas; track pizza.name) {
   <div class='list'>
-    @if (!pizza.soldOut) {
-      <div class="card horizontal" (click)="goToPizza(pizza)">
+      <div class="card horizontal" (click)="goToPizza(pizza)" *appOutOfStock="pizza.soldOut">
         <div class="card-image">
-          <img height="90px" [src]="pizza.image">
+          <img height="90px" [src]="pizza.image" alt="img">
         </div>
         <div class="card-content">
           <span class="card-title activator">{{ pizza.name }} ({{ pizza.weight }}) g - {{ pizza.price | currency }}</span>
         </div>
       </div>
-    }
+
   </div>
 }

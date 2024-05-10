@@ -3,13 +3,15 @@ import {CurrencyPipe} from "@angular/common";
 import {TabsComponent} from "../feature-pizza-details/tabs/tabs.component";
 import {NavigationService} from "../../commons/navigation.service";
 import {IPizza, PizzaRestService} from "@pizza/data-access";
+import {OutOfStockDirective} from "./out-of-stock/out-of-stock.directive";
 
 @Component({
   selector: 'feature-pizza-list',
   standalone: true,
   imports: [
     CurrencyPipe,
-    TabsComponent
+    TabsComponent,
+    OutOfStockDirective
   ],
   templateUrl: './pizza-list.component.html',
   styleUrl: './pizza-list.component.css'
