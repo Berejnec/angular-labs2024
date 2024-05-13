@@ -1,13 +1,6 @@
 @for (pizza of pizzas; track pizza.name; let i = $index) {
   <div class='list'>
-      <div class="card horizontal" (click)="goToPizza(pizza)" *appOutOfStock="pizza.soldOut" [appDiscount]="!(i % 2)">
-        <div class="card-image">
-          <img height="90px" [src]="pizza.image" alt="img">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator">{{ pizza.name }} ({{ pizza.weight }}) g - {{ pizza.price | exchange:'USD' | currency }}</span>
-        </div>
-      </div>
+  <app-pizza-card [pizza]='pizza' [index]='i'></app-pizza-card>
 
   </div>
 }

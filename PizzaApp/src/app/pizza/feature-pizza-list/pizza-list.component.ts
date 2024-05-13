@@ -6,6 +6,7 @@ import {IPizza, PizzaRestService} from "@pizza/data-access";
 import {OutOfStockDirective} from "./out-of-stock/out-of-stock.directive";
 import {DiscountDirective} from "./discount/discount.directive";
 import {ExchangePipe} from "./exchange/exchange.pipe";
+import {PizzaCardComponent} from "./pizza-card/pizza-card.component";
 
 @Component({
   selector: 'feature-pizza-list',
@@ -15,7 +16,8 @@ import {ExchangePipe} from "./exchange/exchange.pipe";
     TabsComponent,
     OutOfStockDirective,
     DiscountDirective,
-    ExchangePipe
+    ExchangePipe,
+    PizzaCardComponent
   ],
   templateUrl: './pizza-list.component.html',
   styleUrl: './pizza-list.component.css'
@@ -23,15 +25,12 @@ import {ExchangePipe} from "./exchange/exchange.pipe";
 export class PizzaListComponent implements OnInit {
   pizzas: Array<IPizza> = [];
 
-  constructor(private pizzaService: PizzaRestService,
-              private navigationService: NavigationService) {
+  constructor(private pizzaService: PizzaRestService) {
   }
 
   ngOnInit() {
     this.pizzaService.getPizzas().subscribe(pizzas => this.pizzas = pizzas);
   }
 
-  goToPizza(pizza: IPizza) {
-    return this.navigationService.openPizza(pizza.id);
-  }
+
 }
