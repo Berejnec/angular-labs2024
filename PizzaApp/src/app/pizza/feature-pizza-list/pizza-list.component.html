@@ -1,6 +1,22 @@
 @for (pizza of pizzas; track pizza.name; let i = $index) {
   <div class='list'>
-  <app-pizza-card [pizza]='pizza' [index]='i'></app-pizza-card>
+  <app-pizza-card [pizza]='pizza' [index]='i'>
+    {{ pizza.price | exchange:'USD' | currency }}
+  </app-pizza-card>
 
   </div>
 }
+
+<h4> Stocks </h4>
+
+@for (pizza of pizzas; track pizza.name; let i = $index) {
+  <div class='list'>
+
+  <app-pizza-card [pizza]='pizza' [index]='i'>
+    {{ pizza.stock}}
+  </app-pizza-card>
+
+  </div>
+}
+
+

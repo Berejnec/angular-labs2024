@@ -7,6 +7,7 @@ import {OutOfStockDirective} from "./out-of-stock/out-of-stock.directive";
 import {DiscountDirective} from "./discount/discount.directive";
 import {ExchangePipe} from "./exchange/exchange.pipe";
 import {PizzaCardComponent} from "./pizza-card/pizza-card.component";
+import {PizzaFileService} from "../data-access-pizza/pizza-file.service";
 
 @Component({
   selector: 'feature-pizza-list',
@@ -25,7 +26,7 @@ import {PizzaCardComponent} from "./pizza-card/pizza-card.component";
 export class PizzaListComponent implements OnInit {
   pizzas: Array<IPizza> = [];
 
-  constructor(private pizzaService: PizzaRestService) {
+  constructor(private pizzaService: PizzaFileService) {
   }
 
   ngOnInit() {

@@ -1,6 +1,7 @@
 export interface IPizza {
   id: string;
   name: string,
+  stock: number,
   price: number,
   weight: number,
   image: string,
