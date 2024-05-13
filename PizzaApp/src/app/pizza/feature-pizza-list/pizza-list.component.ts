@@ -5,6 +5,7 @@ import {NavigationService} from "../../commons/navigation.service";
 import {IPizza, PizzaRestService} from "@pizza/data-access";
 import {OutOfStockDirective} from "./out-of-stock/out-of-stock.directive";
 import {DiscountDirective} from "./discount/discount.directive";
+import {ExchangePipe} from "./exchange/exchange.pipe";
 
 @Component({
   selector: 'feature-pizza-list',
@@ -13,7 +14,8 @@ import {DiscountDirective} from "./discount/discount.directive";
     CurrencyPipe,
     TabsComponent,
     OutOfStockDirective,
-    DiscountDirective
+    DiscountDirective,
+    ExchangePipe
   ],
   templateUrl: './pizza-list.component.html',
   styleUrl: './pizza-list.component.css'
