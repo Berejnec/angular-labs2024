@@ -1,6 +1,6 @@
-@for (pizza of pizzas; track pizza.name) {
+@for (pizza of pizzas; track pizza.name; let i = $index) {
   <div class='list'>
-      <div class="card horizontal" (click)="goToPizza(pizza)" *appOutOfStock="pizza.soldOut">
+      <div class="card horizontal" (click)="goToPizza(pizza)" *appOutOfStock="pizza.soldOut" [appDiscount]="!(i % 2)">
         <div class="card-image">
           <img height="90px" [src]="pizza.image" alt="img">
         </div>
