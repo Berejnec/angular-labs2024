@@ -1,0 +1,14 @@
+.custom-toolbar {
+  min-height: 64px;
+  background: red;
+  color: white;
+}
+
+.brand-logo {
+  color: white;
+}
+
+li {
+  cursor: pointer;
+  list-style-type: none;
+}

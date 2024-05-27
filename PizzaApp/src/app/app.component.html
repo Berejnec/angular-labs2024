@@ -1,12 +1,13 @@
-<nav>
-  <div class="nav-wrapper red darken-2 row">
-    <div class="col s12">
-      <a href="#" class="brand-logo "><i class="large material-icons">local_pizza</i>Pizza is life</a>
-      <ul id="nav-mobile" class="right">
-        <li><a (click)="goToPizzas()">Pizzas</a></li>
-        <li><a (click)="goToCustomers()">Customers</a></li>
-      </ul>
-    </div>
+<nav class="w-100 shadow custom-toolbar d-flex align-items-center">
+  <div class="w-100 d-flex align-items-center justify-content-between">
+    <a href="#" class="brand-logo ps-3 d-flex align-items-center gap-2 text-decoration-none">
+      <i class="large material-icons">local_pizza</i>
+      Pizza is life
+    </a>
+    <ul id="nav-mobile" class="d-flex align-items-center gap-5 pe-3">
+      <li><a (click)="goToPizzas()">Pizzas</a></li>
+      <li><a (click)="goToCustomers()">Customers</a></li>
+    </ul>
   </div>
 </nav>
 
