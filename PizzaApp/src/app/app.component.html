@@ -1,15 +1,13 @@
-<nav class="w-100 shadow custom-toolbar d-flex align-items-center">
-  <div class="w-100 d-flex align-items-center justify-content-between">
-    <a href="#" class="brand-logo ps-3 d-flex align-items-center gap-2 text-decoration-none">
-      <i class="large material-icons">local_pizza</i>
-      Pizza is life
-    </a>
-    <ul id="nav-mobile" class="d-flex align-items-center gap-5 pe-3">
-      <li><a (click)="goToPizzas()">Pizzas</a></li>
-      <li><a (click)="goToCustomers()">Customers</a></li>
-    </ul>
+<mat-toolbar color="primary" class="d-flex justify-content-between">
+  <a mat-button href="#" class="brand-logo ">
+    <i class="large material-icons">local_pizza</i>
+    Pizza is life
+  </a>
+  <div>
+    <a mat-button (click)="goToPizzas()" class="mx-1">Pizzas</a>
+    <a mat-button (click)="goToCustomers()" class="mx-1">Customers</a>
   </div>
-</nav>
+</mat-toolbar>
 
 <div class="container mt-5">
   <router-outlet></router-outlet>
